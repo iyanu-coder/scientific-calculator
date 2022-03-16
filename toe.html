@@ -1,0 +1,674 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--  <link rel="stylesheet" href="css/Tic_Tac_Toe.css">
+    <link rel="stylesheet" type="text/css" href="Tic_tac_toe.js"> -->
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+
+        <style type="text/css">
+            *{
+    padding: 0;
+    margin:0;
+}
+.nos{
+    background-color: blue;
+    text-align: center;
+    color:#fff; 
+    height: 100px; 
+    padding-top :40px;
+    font-size: 1.5rem;
+    width: 35%; 
+    margin:auto;
+    position:absolute;
+    z-index: 1;
+    top:45%;
+    left:33%;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: #222222;
+    box-shadow: 2px 2px 4px #5C5C5C,
+                -2px -2px 4px #111;
+    border-radius: 20px;
+}
+.wholegame{
+    margin:20px auto;
+    height:650px;
+    width:500px;
+    background-color: #222;
+    padding:0 10px 0 10px;
+    border-radius: 15px;
+}
+.whole:hover{
+    box-shadow: 1px 1px 15px grey,  -1px -1px 15px grey;
+    transition: all 1s 0s;
+}
+#w1, #w2, #w3, #w4, #w5, #w6, #w7, #w8{
+    border:2px solid grey;
+    width:372px;    
+    background-color: transparent;
+    position: relative;
+    height: 20px;
+    border-radius: 20px;
+}
+#w1{
+    transform: rotate(45deg);
+    top:195px;
+    left: -50px;
+    width:465px;
+}
+#w2{
+    transform: rotate(-45deg);
+    top:200px;
+    left: -45px;
+    width:465px;
+}
+#w3{
+    top:70px;
+}
+#w4{
+    top:195px;
+}
+#w5{
+    top:323px;
+}
+#w6{
+    transform: rotate(90deg);
+    top:200px;
+    left: -125px;
+    width:370px;
+}
+#w7{
+    transform: rotate(90deg);
+    top:200px;
+    left: 5px;
+    width:370px;
+}
+#w8{
+    transform: rotate(90deg);
+    top:200px;
+    left: 135px;
+    width:370px;
+}
+.head{
+    border-radius: 15px;
+    position: relative;
+    top:10px;
+    height: 140px;
+    padding: 0 10 0 10;
+}
+.title{
+    text-align: center;
+    color: #f3f3f3;
+    font-size: 1.5rem;
+    position: relative;
+    top: 10px;
+    font-family: 'lucida calligraphy';
+}
+.top{
+    margin-top: 20px;
+}
+.top input{
+    width:200px ;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border:1px solid grey;
+    outline: none;
+    z-index: +5;
+}
+#sub{
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: black;
+    border:1px solid grey;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    padding-left: 0;
+    transition: all 2s 0s;
+    color: white;
+}
+#sub:hover{
+    background-color: rgb(246, 226, 113);
+    transition: all 0.5s 0s;
+}
+#welcome{
+    margin: 5 auto;
+    color: gold;
+    font-size: 1.1rem;
+    width: fit-content;
+    height:20px;
+    text-align: center;
+}
+#player{
+    margin: 5 auto;
+    color: gold;
+    font-size: 1.3rem;
+    width: fit-content;
+    text-align: center;
+}
+.in{
+    height:390px;
+    margin-left: 64px;
+    position: relative;
+    top:15px;
+    border-radius: 15px;
+}
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine{
+    width:124px;
+    margin:0px auto;
+    height:124px;
+    border-radius: 15px;
+    font-size: 5rem;
+    font-family:'lucida Handwriting';
+    color:#fff;
+    outline:none;
+    border:0;
+    background-color: transparent;
+}
+#one{
+    border-right: 3px solid #837F7F;
+    border-bottom: 3px solid #837F7F;
+}
+#two{
+    border-left: 3px solid #837F7F;
+    border-bottom: 3px solid #837F7F;
+    border-right: 3px solid #837F7F;
+}
+#three{
+    border-left: 3px solid #837F7F;
+    border-bottom: 3px solid #837F7F;
+}
+#four{
+    border-top: 3px solid #837F7F;
+    border-right: 3px solid #837F7F;
+    border-bottom: 3px solid #837F7F;
+}
+#five{
+    border-right: 3px solid #837F7F;
+    border-top: 3px solid #837F7F;
+    border-left: 3px solid #837F7F;
+    border-bottom: 3px solid #837F7F;
+}
+#six{
+    border-left: 3px solid #837F7F;
+    border-top: 3px solid #837F7F;
+    border-bottom: 3px solid #837F7F;
+}
+#seven{
+    border-right: 3px solid #837F7F;
+    border-top: 3px solid #837F7F;
+}
+#eight{
+    border-right: 3px solid #837F7F;
+    border-left: 3px solid #837F7F;
+    border-top: 3px solid #837F7F;
+}
+#nine{
+    border-left: 3px solid #837F7F;
+    border-top: 3px solid #837F7F;
+}
+#scoreboard{
+    width: fit-content;
+    margin:30 auto;
+    color: #fff;
+}
+#fname{
+     border-top:2px solid #ccc;
+     border-right:2px solid #ccc;
+     border-left:2px solid #ccc;
+     padding:5px 10px 5px 10px;
+     border-top-right-radius: 20px;
+     border-top-left-radius: 20px;
+     width:130px;
+     background-color: transparent;
+     outline: none;
+     margin-left: 15px;
+     color: #fff;
+    }
+#score{
+    border: 0;
+    border-bottom:2px solid #ccc;
+    padding:0px 1px 5px 1px;
+    /* margin-right: -4; */
+    /* margin-left: -4; */
+    position: relative;
+    top: 3.5px;
+    width:100px;
+    background-color: transparent;
+    outline: none;
+    color: #fff;
+}
+#fscore{
+    margin-left: 10px;
+    float: left;
+}
+#sscore{
+    margin-right: 10px;
+    float: right;
+}
+#sname{
+    width:100px;
+    border-top:2px solid #ccc;
+    border-left:2px solid #ccc;
+    border-right:2px solid #ccc;
+    padding:5px 10px 5px 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width:130px;
+    background-color: transparent;
+    outline: none;
+    color: #fff;
+}
+#down{
+    width: fit-content;
+    margin:-10 auto;
+}
+#down button{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#replay{
+    background-color: gold;
+    width:80px;
+    height:30px;
+    border-radius: 10px;
+    border:0;
+}
+#replay:hover{
+    background-color: rgb(246, 226, 113);
+    transition: all 0.5s 0s;
+}
+#end{
+    background-color: gold;
+    width:80px;
+    height:30px;
+    border-radius: 10px;
+    border:0;
+    /* margin:0 auto; */
+}
+#end:hover{
+    background-color: rgb(246, 226, 113);
+    transition: all 0.5s 0s;
+}
+
+        </style>
+
+
+        <noscript class="nos">Your Browser does not support Javascript, So you can't Play</noscript> 
+    <div class="wholegame">
+        
+        <div class="head">
+            <div id="okay" class="top">
+                <input type="text" value="" id="input1" placeholder="Player 1" required maxlength="8">
+                <input type="text" value="" id="input2" placeholder="Player 2" required maxlength="8">
+                <input id="sub" onclick="start()" value="Start" type="submit">
+            </div>
+            <div id="welcome"></div>
+            <div id="player"></div>
+        </div>
+        <div class="in" id="inn">
+            <div class="winn"></div>
+            <table border:30px>
+                <tr border:2px>
+                    <td><button id="one" onclick="show(event)"></button></td>
+                    <td><button id="two" onclick="show(event)"></button></td>
+                    <td><button id="three" onclick="show(event)"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="four" onclick="show(event)"></button></td>  
+                    <td><button id="five" onclick="show(event)"></button></td>
+                    <td><button id="six" onclick="show(event)"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="seven" onclick="show(event)"></button></td>
+                    <td><button id="eight" onclick="show(event)"></button></td>
+                    <td><button id="nine" onclick="show(event)"></button></td>
+                </tr>
+            </table>
+        </div>
+        <div id="scoreboard"></div>
+
+       <div id="down"></div>
+       
+    </div>
+   <script type="text/javascript">
+       
+var w1 = document.createElement("div")
+w1.id = "w1"
+var w2 = document.createElement("div")
+w2.id = "w2"
+var w3 = document.createElement("div")
+w3.id = "w3"
+var w4 = document.createElement("div")
+w4.id = "w4"
+var w5 = document.createElement("div")
+w5.id = "w5"
+var w6 = document.createElement("div")
+w6.id = "w6"
+var w7 = document.createElement("div")
+w7.id = "w7"
+var w8 = document.createElement("div")
+w8.id = "w8"
+document.querySelector(".winn").appendChild(w1)
+document.querySelector(".winn").appendChild(w2)
+document.querySelector(".winn").appendChild(w3)
+document.querySelector(".winn").appendChild(w4)
+document.querySelector(".winn").appendChild(w5)
+document.querySelector(".winn").appendChild(w6)
+document.querySelector(".winn").appendChild(w7)
+document.querySelector(".winn").appendChild(w8)
+
+w1.style.display = "none"
+w2.style.display = "none"
+w3.style.display = "none"
+w4.style.display = "none"
+w5.style.display = "none"
+w6.style.display = "none"
+w7.style.display = "none"
+w8.style.display = "none"
+
+
+var fname = document.createElement("button")
+fname.id = "fname"
+var score = document.createElement("button")
+score.id = "score"
+
+var fscore = document.createElement("span")
+fscore.id = "fscore"
+var sscore = document.createElement("span")
+sscore.id = "sscore"
+score.appendChild(fscore)
+score.appendChild(sscore)
+var sname = document.createElement("button")
+sname.id = "sname"
+document.querySelector("#scoreboard").appendChild(fname)
+document.querySelector("#scoreboard").appendChild(score)
+document.querySelector("#scoreboard").appendChild(sname)
+
+scoreboard.style.display = "none"    
+var replay = document.createElement("button")
+replay.id = "replay"
+replay.innerText = "Replay"
+var end = document.createElement("button")
+end.id = "end"
+end.innerText = "End-Game"
+document.querySelector("#down").appendChild(replay)
+document.querySelector("#down").appendChild(end)
+
+down.style.display = "none"
+replay.style.display = "none"
+
+
+input1.innerHTML = input1.value;
+input2.innerHTML = input2.value;
+
+function start(){
+    if(input1.value != "" && input2.value != ""){
+        welcome.innerText = "Welcome "+ input1.value + " and " + input2.value +".";
+        player.innerText = input1.value +"'s" + " turn";
+        scoreboard.style.display = "block";
+        replay.style.display = "inline";
+        fname.innerText = input1.value;
+        sname.innerText = input2.value;
+        one.innerText = ""
+        two.innerText = ""
+        three.innerText = ""
+        four.innerText = ""
+        five.innerText = ""
+        six.innerText = ""
+        seven.innerText = ""
+        eight.innerText = ""
+        nine.innerText = ""
+        one.style.backgroundColor = "unset"
+        two.style.backgroundColor = "unset"
+        three.style.backgroundColor = "unset"
+        four.style.backgroundColor = "unset"
+        five.style.backgroundColor = "unset"
+        six.style.backgroundColor = "unset"
+        seven.style.backgroundColor = "unset"
+        eight.style.backgroundColor = "unset"
+        nine.style.backgroundColor = "unset"
+        fscore.innerText = "0"
+        sscore.innerText = "0"
+        down.style.display = "block"
+        w1.style.display = "none"
+        w2.style.display = "none"
+        w3.style.display = "none"
+        w4.style.display = "none"
+        w5.style.display = "none"
+        w6.style.display = "none"
+        w7.style.display = "none"
+        w8.style.display = "none"
+        inn.style.marginTop = "unset"
+        scoreboard.style.marginTop = "25px"
+    } else if(input1.value == "" && input2.value != ""){
+        welcome.innerHTML = "First Player is yet to input Name"
+    } else if (input1.value != "" && input2.value == ""){
+        welcome.innerHTML = "Second Player is yet to input Name"
+    } else  {
+            welcome.innerHTML = " Players Should Enter their Name";
+        }
+
+}
+var turn = 1;
+function show(e){
+
+    if( welcome.innerText == "🎉🎉✨✨ " + input1.value + " Won, Press Replay to Start Again" || 
+        welcome.innerText == "🎉🎉✨✨ " + input2.value + " Won, Press Replay to Start Again"){
+            
+            welcome.innerHTML = "We have a Winner Already, Press Re-Play to Start Again" ;
+    } 
+    if(welcome.innerHTML == "We have a Winner Already, Press Re-Play to Start Again")return;
+
+    if(e.target.innerText != "") return;
+
+    if(turn == 1 && down.style.display == "block"){ 
+        e.target.innerText = "X";
+        turn = 2;
+        player.innerText = input2.value +"'s" + " turn";
+        welcome.style.display = "block"
+        welcome.innerHTML = ""
+        
+    } else if (turn == 2 && down.style.display == "block"){
+        e.target.innerText = "O";
+        turn = 1;
+        player.innerText = input1.value +"'s" + " turn";
+        welcome.style.display = "block"
+        welcome.innerHTML = ""
+    } else{
+        welcome.style.display = "block"
+        welcome.innerHTML = "Press Start to Start Game";
+    } 
+
+    if((one.innerText == "X" && two.innerText == "X" && three.innerText == "X") || 
+        (four.innerText == "X" && five.innerText == "X" && six.innerText == "X") ||
+        (seven.innerText == "X" && eight.innerText == "X" && nine.innerText == "X") ||
+        (one.innerText == "X" && four.innerText == "X" && seven.innerText == "X") || 
+        (two.innerText == "X" && five.innerText == "X" && eight.innerText == "X") ||
+        (three.innerText == "X" && six.innerText == "X" && nine.innerText == "X") ||
+        (one.innerText == "X" && five.innerText == "X" && nine.innerText == "X") ||
+        (three.innerText == "X" && five.innerText == "X" && seven.innerText == "X") ){
+            welcome.style.display = "block"
+            welcome.innerText = "🎉🎉✨✨ " + input1.value + " Won, Press Replay to Start Again"
+            player.style.display = "none"
+            ++fscore.innerHTML;
+        
+        }
+
+    if((one.innerText == "O" && two.innerText == "O" && three.innerText == "O") ||
+        (four.innerText == "O" && five.innerText == "O" && six.innerText == "O") ||
+        (seven.innerText == "O" && eight.innerText == "O" && nine.innerText == "O") ||
+        (one.innerText == "O" && four.innerText == "O" && seven.innerText == "O") ||
+        (two.innerText == "O" && five.innerText == "O" && eight.innerText == "O") ||
+        (three.innerText == "O" && six.innerText == "O" && nine.innerText == "O") ||
+        (one.innerText == "O" && five.innerText == "O" && nine.innerText == "O") ||
+        (three.innerText == "O" && five.innerText == "O" && seven.innerText == "O")){
+            welcome.style.display = "block"
+            welcome.innerText = "🎉🎉✨✨ " + input2.value + " Won, Press Replay to Start Again"
+            player.innerText = ""
+            player.style.display = "none"
+            ++sscore.innerHTML;
+        
+    }  else if ( ( (one.innerText == "X" || one.innerText == "O") &&
+                  (two.innerText == "X" || two.innerText == "O") &&
+                  (three.innerText == "X" || three.innerText == "O") &&
+                  (four.innerText == "X" || four.innerText == "O") &&
+                  (five.innerText == "X" || five.innerText == "O") &&
+                  (six.innerText == "X" || six.innerText == "O") &&
+                  (seven.innerText == "X" || seven.innerText == "O") &&
+                  (eight.innerText == "X" || eight.innerText == "O") &&
+                  (nine.innerText == "X" || nine.innerText == "O")) && (welcome.innerText != "🎉🎉✨✨ " + input1.value + " Won, Press Replay to Start Again" && welcome.innerText != "🎉🎉✨✨ " + input2.value + " Won, Press Replay to Start Again" &&  welcome.innerHTML != "We have a Winner Already, Press Re-Play to Start Again" ))  {
+                    welcome.style.display = "block"
+                  welcome.innerText = "Draw Game, Press Replay to Start Again"
+                //   player.innerText = ""
+    }
+    if((one.innerText == "X" && two.innerText == "X" && three.innerText == "X") || (one.innerText == "O" && two.innerText == "O" && three.innerText == "O")){
+        w3.style.display = "block"
+        one.style.backgroundColor = "#35363A"
+        two.style.backgroundColor = "#35363A"
+        three.style.backgroundColor = "#35363A"
+        inn.style.marginTop = "-20px"
+        scoreboard.style.marginTop = "50px"
+    }
+    if((one.innerText == "X" && five.innerText == "X" && nine.innerText == "X") || (one.innerText == "O" && five.innerText == "O" && nine.innerText == "O")){
+        w1.style.display = "block"
+        one.style.backgroundColor = "#35363A"
+        five.style.backgroundColor = "#35363A"
+        nine.style.backgroundColor = "#35363A"
+        inn.style.marginTop = "-20px"
+        scoreboard.style.marginTop = "50px"
+    }
+    if((four.innerText == "X" && five.innerText == "X" && six.innerText == "X") || (four.innerText == "O" && five.innerText == "O" && six.innerText == "O")){
+        w4.style.display = "block"
+        four.style.backgroundColor = "#35363A"
+        five.style.backgroundColor = "#35363A"
+        six.style.backgroundColor = "#35363A"
+        inn.style.marginTop = "-20px"
+        scoreboard.style.marginTop = "50px"
+    }
+    if((seven.innerText == "X" && eight.innerText == "X" && nine.innerText == "X") || (seven.innerText == "O" && eight.innerText == "O" && nine.innerText == "O")){
+        w5.style.display = "block"
+        seven.style.backgroundColor = "#35363A"
+        eight.style.backgroundColor = "#35363A"
+        nine.style.backgroundColor = "#35363A"
+        inn.style.marginTop = "-20px"
+        scoreboard.style.marginTop = "50px"
+    }
+    if((one.innerText == "X" && four.innerText == "X" && seven.innerText == "X") || (one.innerText == "O" && four.innerText == "O" && seven.innerText == "O")){
+        w6.style.display = "block"
+        one.style.backgroundColor = "#35363A"
+        four.style.backgroundColor = "#35363A"
+        seven.style.backgroundColor = "#35363A"
+        inn.style.marginTop = "-20px"
+        scoreboard.style.marginTop = "50px"
+    }
+    if((two.innerText == "X" && five.innerText == "X" && eight.innerText == "X") || (two.innerText == "O" && five.innerText == "O" && eight.innerText == "O")){
+        w7.style.display = "block"
+        two.style.backgroundColor = "#35363A"
+        five.style.backgroundColor = "#35363A"
+        eight.style.backgroundColor = "#35363A"
+        inn.style.marginTop = "-20px"
+        scoreboard.style.marginTop = "50px"
+    }
+    if((three.innerText == "X" && six.innerText == "X" && nine.innerText == "X") || (three.innerText == "O" && six.innerText == "O" && nine.innerText == "O")){
+        w8.style.display = "block"
+        three.style.backgroundColor = "#35363A"
+        six.style.backgroundColor = "#35363A"
+        nine.style.backgroundColor = "#35363A"
+        inn.style.marginTop = "-20px"
+        scoreboard.style.marginTop = "50px"
+    }
+    if((three.innerText == "X" && five.innerText == "X" && seven.innerText == "X") || (three.innerText == "O" && five.innerText == "O" && seven.innerText == "O")){
+        w2.style.display = "block"
+        three.style.backgroundColor = "#35363A"
+        five.style.backgroundColor = "#35363A"
+        seven.style.backgroundColor = "#35363A"
+        inn.style.marginTop = "-20px"
+        scoreboard.style.marginTop = "50px"
+    }
+   
+}
+    end.onclick = function(){
+        scoreboard.style.display = "none";
+        replay.style.display = "none";
+        fname.innerText = "";
+        input1.value = "";
+        sname.innerText =  "";
+        player.innerText = ""
+        input2.value = "";
+        one.innerText = ""
+        two.innerText = ""
+        three.innerText = ""
+        four.innerText = ""
+        five.innerText = ""
+        six.innerText = ""
+        seven.innerText = ""
+        eight.innerText = ""
+        nine.innerText = ""
+        one.style.backgroundColor = "unset"
+        two.style.backgroundColor = "unset"
+        three.style.backgroundColor = "unset"
+        four.style.backgroundColor = "unset"
+        five.style.backgroundColor = "unset"
+        six.style.backgroundColor = "unset"
+        seven.style.backgroundColor = "unset"
+        eight.style.backgroundColor = "unset"
+        nine.style.backgroundColor = "unset"
+        down.style.display = "none"
+        welcome.style.display = "none"
+        fscore.innerText = ""
+        sscore.innerText = ""
+        w1.style.display = "none"
+        w2.style.display = "none"
+        w3.style.display = "none"
+        w4.style.display = "none"
+        w5.style.display = "none"
+        w6.style.display = "none"
+        w7.style.display = "none"
+        w8.style.display = "none"
+        inn.style.marginTop = "unset"
+        scoreboard.style.marginTop = "25px"
+}
+    replay.onclick = function(){
+        welcome.style.display = "none"
+        welcome.innerHTML = ""
+        player.style.display = "block"
+        one.innerText = ""
+        two.innerText = ""
+        three.innerText = ""
+        four.innerText = ""
+        five.innerText = ""
+        six.innerText = ""
+        seven.innerText = ""
+        eight.innerText = ""
+        nine.innerText = ""
+        one.style.backgroundColor = "unset"
+        two.style.backgroundColor = "unset"
+        three.style.backgroundColor = "unset"
+        four.style.backgroundColor = "unset"
+        five.style.backgroundColor = "unset"
+        six.style.backgroundColor = "unset"
+        seven.style.backgroundColor = "unset"
+        eight.style.backgroundColor = "unset"
+        nine.style.backgroundColor = "unset"
+        w1.style.display = "none"
+        w2.style.display = "none"
+        w3.style.display = "none"
+        w4.style.display = "none"
+        w5.style.display = "none"
+        w6.style.display = "none"
+        w7.style.display = "none"
+        w8.style.display = "none"
+        inn.style.marginTop = "unset"
+        scoreboard.style.marginTop = "25px"
+}
+
+   </script>
+    
+</body>
+</html>
