@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="calculator.css">
+	<title>Calculator</title>
+</head>
+
+<script type="text/javascript">
+	function myclick(a){
+		myform.display.value+=a;
+	}
+	function fnexp(){
+		myform.display.value=Math.Exp(myform.display.value);
+	}
+	function fnans(){
+		myform.display.value=eval(myform.display.value);
+	}
+	function equalto(){
+		myform.display.value=eval(myform.display.value);
+	}
+	function ac(){
+		myform.display.value="0";
+	}
+	function backspace(){
+		var prevalue=myform.display.value;
+		myform.display.value=prevalue.substr(0,prevalue.length-1);
+	}
+
+	function fnsin(){
+		myform.display.value=Math.sin(myform.display.value);
+	}
+	function fncos(){
+		myform.display.value=Math.cos(myform.display.value);
+	}
+	function fntan(){
+		myform.display.value=Math.tan(myform.display.value);
+	}
+	function square(){
+		myform.display.value=Math.pow(myform.display.value,2);
+	}
+	function squarert() {
+		myform.display.value=Math.pow(myform.display.value,1/2);
+	}
+
+</script>
+
+
+
+<body>
+	<div class="wrap">
+
+	<form name="myform">
+			<div class="sna">SNAZZY</div>
+
+			 <input class="tox" type="text" name="display"><br>
+
+
+
+		<input class="gaa" type="button" name="btn" value="" onclick="()">
+		<input class="gaa" type="button" name="btn" value="" onclick="()">
+
+		<input class="dee" type="button" name="btn" value="" onclick="()">
+
+		<input class="lala" type="button" name="btn" value="on" onclick="()">
+		<input class="lala" type="button" name="btn" value="" onclick="()">	<br>
+
+		<input class="left" type="button" name="btn" value="" onclick="()">
+		<input class="right" type="button" name="btn" value="" onclick="()"><br>		
+
+		<input class="boo" type="button" name="btn" value="CALC" onclick="()">
+		<input class="boo" type="button" name="btn" value="%" onclick="()">
+
+		<input class="blabla" type="button" name="btn" value="" onclick="()">
+
+		<input class="bee" type="button" name="btn" value="x1" onclick="()">
+		<input class="bee" type="button" name="btn" value="log" onclick="()"> <br>
+		
+		 <input class="bt" type="button" name="btn" value="1/2" onclick="fntan()"> 
+		 <input class="bt" type="button" name="btnsqrt" value="Rt" onclick="squarert()">
+		 <input class="bt" type="button" name="btnsqr" value="^2" onclick="square()"> 
+		 <input class="bt" type="button" name="btntan" value="^3" onclick="()"> 
+		 <input class="bt" type="button" name="btn" value="log" onclick="()"> 
+		 <input class="bt" type="button" name="btn" value="ln" onclick="()"> <br>
+		       
+		 <input class="bt" type="button" name="btn" value="(-)" onclick="()">
+		 <input class="bt" type="button" name="btn" value=".,,," onclick="()">
+		 <input class="bt" type="button" name="btn" value="hyp" onclick="()">
+		 <input class="bt" type="button" name="btnsin" value="sin" onclick="fnsin()"> 
+		 <input class="bt" type="button" name="btncos" value="cos" onclick="fncos()"> 
+		 <input class="bt" type="button" name="btntan" value="tan" onclick="fntan()"> <br>
+
+		 <input class="bt" type="button" name="btnsqrt" value="RCL" onclick="()">
+		 <input class="bt" type="button" name="btnsqrt" value="ENG" onclick="()">
+		 <input class="bt" type="button" name="btnsqrt" value="(" onclick="()">
+		 <input class="bt" type="button" name="btnsqrt" value=")" onclick="()">
+		 <input class="bt" type="button" name="btnsqrt" value="S=D" onclick="()">
+		 <input class="bt" type="button" name="btnsqrt" value="M+" onclick="()"> <br>
+	
+
+		 <!-- seven -->
+		<input class="btn" type="button" name="btn7" value="7" onclick="myclick('7')"> 
+		<input class="btn" type="button" name="btn8" value="8" onclick="myclick('8')"> 
+		<input class="btn" type="button" name="btn9" value="9" onclick="myclick('9')"> 
+		<input class="btn" type="button" name="btndel" value="DEL" onclick="backspace()"> 
+		<input class="btn" type="button" name="btnac" value="AC" onclick="ac()"><br>
+		<input class="btn" type="button" name="btn4" value="4" onclick="myclick('4')"> 
+		<input class="btn" type="button" name="btn5" value="5" onclick="myclick('5')"> 
+		<input class="btn" type="button" name="btn6" value="6" onclick="myclick('6')">
+		<input class="btn" type="button" name="btnmul" value="&times;" onclick="myclick('*')">
+		<input class="btn" type="button" name="btndiv" value="&divide;" onclick="myclick('/')"><br>
+		<input class="btn" type="button" name="btn1" value="1" onclick="myclick('1')"> 
+		<input class="btn" type="button" name="btn2" value="2" onclick="myclick('2')"> 
+		<input class="btn" type="button" name="btn2" value="3" onclick="myclick('3')"> 
+		<input class="btn" type="button" name="btnadd" value="+" onclick="myclick('+')"> 
+		<input class="btn" type="button" name="btnsub" value="-" onclick="myclick('-')"><br> 
+	
+		<input class="btn" type="button" name="btnzero" value="0" onclick="myclick('0')">
+		<input class="btn" type="button" name="btnpoint" value="." onclick="myclick('.')"> 
+		<input class="btn" type="button" name="btnexp" value="EXP" onclick="fnExp()">
+		<input class="btn" type="button" name="btnans" value="Ans" onclick="fnAns()">
+		<input class="btn" type="button" name="btnequal" value="=" onclick="equalto()">
+	</div>   
+
+		
+
+		
+	</form>
+</body>
+</html>
